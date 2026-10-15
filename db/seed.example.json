@@ -1,0 +1,27 @@
+{
+  "klien": { "nama": "Sari Dewi Contoh", "hp": "081200000000", "email": "sari.contoh@example.com" },
+  "profil": {
+    "nama_lengkap": "Sari Dewi Contoh",
+    "hp": "081200000000",
+    "email": "sari.contoh@example.com",
+    "alamat": "Jl. Contoh No. 1, Semarang",
+    "kota": "",
+    "ringkasan": "Staf administrasi dengan pengalaman mengelola arsip dan laporan bulanan, teliti dan terbiasa bekerja dengan tenggat."
+  },
+  "entries": [
+    { "tipe": "kerja", "judul": "Staf Administrasi", "instansi": "PT Contoh Maju", "mulai": "2022-02-01", "berjalan": true,
+      "butir": ["Mengelola arsip 1.200 dokumen per bulan", "Menyusun laporan bulanan untuk direksi"] },
+    { "tipe": "magang", "judul": "Peserta Magang", "instansi": "CV Contoh Sinar", "mulai": "2021-06-01", "selesai": "2021-09-01",
+      "butir": ["Mengarsipkan surat masuk dan keluar"] },
+    { "tipe": "pendidikan", "judul": "Manajemen", "instansi": "Universitas Contoh", "deskripsi": "Lulus 2021" },
+    { "tipe": "pendidikan", "judul": "Sekolah Menengah Atas", "instansi": "SMAN 1 Contoh" },
+    { "tipe": "skill", "judul": "Microsoft Excel", "deskripsi": "Mahir" },
+    { "tipe": "skill", "judul": "Pengarsipan" }
+  ],
+  "cv": {
+    "label": "CV Administrasi",
+    "target": "Staf Administrasi",
+    "template": "klasik",
+    "kecuali": ["SMAN 1 Contoh"]
+  }
+}

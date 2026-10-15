@@ -1,0 +1,40 @@
+{
+  "name": "ceve-in",
+  "version": "1.0.0",
+  "description": "CEVE-IN: kelola CV ATS untuk banyak klien",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.12.4",
+  "scripts": {
+    "dev": "next dev -p 3300",
+    "build": "next build",
+    "start": "next start -p 3300",
+    "typecheck": "tsc --noEmit",
+    "db": "node scripts/db.mjs",
+    "tokens": "node scripts/gen-tokens.mjs",
+    "test": "node --test test/*.test.ts",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "dependencies": {
+    "docx": "^9.11.0",
+    "next": "^16.4.1",
+    "postgres": "^3.4.9",
+    "puppeteer-core": "^25.14.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

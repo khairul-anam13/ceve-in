@@ -1,0 +1,9 @@
+.next/
+node_modules/
+.env.local
+data/
+*.tsbuildinfo
+next-env.d.ts
+shots/
+# data klien nyata untuk seed lokal; contoh fiktif ada di db/seed.example.json
+db/seed.json
