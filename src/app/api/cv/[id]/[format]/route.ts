@@ -5,6 +5,9 @@ import { renderDocx } from "@/lib/render-docx";
 import { renderHtml } from "@/lib/render-html";
 import { htmlToPdf } from "@/lib/render-pdf";
 
+/** Pembuatan PDF di Vercel butuh beberapa detik saat cold start. */
+export const maxDuration = 60;
+
 const slug = (s: string) => s.normalize("NFKD").replace(/[^\w\s-]/g, "").trim().replace(/\s+/g, "-").slice(0, 60) || "cv";
 const TIDAK = () => new Response("Tidak ditemukan", { status: 404 });
 

@@ -20,11 +20,21 @@ pnpm dev             # http://localhost:3300
 
 Database aktif adalah proyek Supabase `favpdnjhhviwezlpskox`.
 
-- `DATABASE_URL` memakai koneksi langsung (`db.<ref>.supabase.co:5432`, SSL wajib). Koneksi ini IPv6. Bila server tujuan tidak punya IPv6 (mis. Vercel), pakai string **Session pooler** dari Dashboard → Connect.
+- `DATABASE_URL` lokal memakai koneksi langsung (`db.<ref>.supabase.co:5432`, SSL wajib). Koneksi ini IPv6, jadi **tidak jalan di Vercel**. Untuk Vercel pakai pooler transaksi (IPv4): `aws-0-ap-southeast-1.pooler.supabase.com:6543`, pengguna `postgres.<ref>`. Nilainya sudah ada di `.env.local` sebagai `DATABASE_URL_POOLER`.
 - Semua tabel memakai Row Level Security tanpa kebijakan, jadi REST API publik Supabase tidak bisa membaca atau menulis data. Aplikasi memakai koneksi database langsung dan tidak terpengaruh.
 - `DATABASE_URL_LOKAL` menyimpan database Postgres lokal lama. Tukar nilainya ke `DATABASE_URL` untuk kerja offline.
 - Skema dan data diatur lewat `pnpm db schema` (aman diulang). Jangan mengubah tabel lewat editor Supabase tanpa memperbarui `db/schema.sql`.
 - `.mcp.json` mendaftarkan MCP Supabase untuk proyek ini. Jalankan `claude` lalu `/mcp` di terminal biasa dan pilih supabase → Authenticate sekali.
+
+## Deploy ke Vercel
+
+1. Vercel → Project → **Settings → Environment Variables**. Tambah `DATABASE_URL` = isi `DATABASE_URL_POOLER` dari `.env.local` (Production dan Preview).
+2. **Redeploy**. Perubahan variabel baru berlaku pada deploy berikutnya, bukan pada deploy yang sudah jalan.
+3. Tanpa `DATABASE_URL`, halaman gagal dengan `ECONNREFUSED 127.0.0.1:5432` (atau pesan "DATABASE_URL belum diisi").
+4. Fungsi berjalan di wilayah `sin1` (`vercel.json`), sama dengan database Supabase di Singapura.
+5. PDF di Vercel memakai `@sparticuz/chromium`. Font bawaan server terbatas, jadi huruf PDF bisa sedikit berbeda dari pratinjau. Bila tampilannya penting, unduh PDF dari komputer lokal.
+
+Admin dan data klien sudah ada di database Supabase, jadi login admin langsung bisa dipakai.
 
 ## Cara kerja
 
